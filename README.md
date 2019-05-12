@@ -53,7 +53,7 @@ benarmstrong: 2015-05-22 - 2019-05-11 (1451 days)
   - merge both histograms to find longest created_on or observed_on streak
     - i.e. append &date_field=created_on to URL to return created_on histogram
   - count how many identifications a user made on one day & merge that, too
-  - tidier output
+  - ~~tidier output~~
 
 ### Similar software:
 

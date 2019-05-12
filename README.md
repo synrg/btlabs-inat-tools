@@ -99,5 +99,6 @@ If *topinat* isn't for you, maybe one of these will suit you better:
     - Home page:
         - https://www.inaturalist.org/stats
     - Web app for personal stats:
-        - https://www.inaturalist.org/stats/*year*/*userid*
+        - add *year* and *userid* to the URL, e.g.
+            - https://www.inaturalist.org/stats/2019/benarmstrong
 

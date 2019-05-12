@@ -58,7 +58,7 @@ community.
 
 If *topinat* isn't for you, maybe one of these will suit you better:
 
-- **inat-streak** *web app based on the idea for inattop*
+- **inat-streak** *web app based on the idea for topinat*
     - Webapp site at:
         - https://mapsandapps.github.io/inat-streak/
     - *inat-streak*  vs. *topinat*:
@@ -67,7 +67,7 @@ If *topinat* isn't for you, maybe one of these will suit you better:
           longest iNat observations streaks on the web instead of the
           commandline like *topinat*
         - *inat-streak* is original code that shares no common code
-          with *inattop*, but we have benefitted from discussion with
+          with *topinat*, but we have benefitted from discussion with
           each other, borrowing each other's ideas liberally to
           improve the two tools in parallel.
 - **inat-days** *tool to report top users by streaks of days with iNaturalist activity*

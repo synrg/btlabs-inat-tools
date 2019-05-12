@@ -1,0 +1,23 @@
+#!/bin/bash
+# topinat - iNaturalist user top days report
+#
+# Usage:
+#   topinat <userid>
+#
+# Example:
+#   topinat barmstrong
+userid=${1}
+
+# Author's environment & defaults. Uncomment / edit as needed.
+#command -v ruby >/dev/null 2>&1 || uru 2.2 >/dev/null 2>&1
+#userid=${1:-benarmstrong}
+
+curl -sL "https://api.inaturalist.org/v1/observations/histogram?user_id=${userid}&interval=day&d1=2008-01-01'" | \
+  ruby -rjson -ne 'j=JSON.parse($_); r=j["results"]["day"]; days=r.to_a' \
+       -e 'max=days.sort_by{|day|day.last}.last(5)' \
+       -e 'ls=days.chunk{|day|day.last>0}.select{|chunk|chunk.first}.map{|streak|streak.last}.sort{|a,b|[a.size,a.first]<=>[b.size,b.first]}.last(5)' \
+       -e 'fmt1="%s: %s - %s (%d days)";fmt2="   % 5d observations (%s)";fmt3=" % 5d days (%s - %s)";hdr2="  Top 5 days:";hdr3="  Top 5 streaks:"' \
+       -e "puts fmt1 % ['${userid}',days.first.first,days.last.first,days.size]" \
+       -e 'puts hdr2;max.reverse_each{|max| puts fmt2 % [max.last, max.first]}' \
+       -e 'puts hdr3;ls.reverse_each{|streak| puts fmt3 % [streak.size, streak.first.first, streak.last.first]}'
+                              

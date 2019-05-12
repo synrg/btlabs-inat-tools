@@ -50,9 +50,13 @@ benarmstrong: 2015-05-22 - 2019-05-11 (1451 days)
   - http://api.inaturalist.org/v1/docs/#!/Observations/get_observations_histogram
 
 ### TODO:
-  - merge both histograms to find longest created_on or observed_on streak
-    - i.e. append &date_field=created_on to URL to return created_on histogram
-  - count how many identifications a user made on one day & merge that, too
+  - measure other kinds of iNat activity
+      - merge both histograms to find longest created_on or observed_on streak
+          - i.e. append &date_field=created_on to URL to return created_on histogram
+      - count how many identifications a user made on one day & merge that, too
+  - split shell wrapper and ruby one-liner to make more readable / maintainable
+  - input validation: only accept valid inat userids
+  - configuration: allow own userid to be configured as default without edits to code
   - ~~tidier output~~
 
 ### Similar software:

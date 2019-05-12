@@ -19,10 +19,16 @@ City Nature Challenge 2019 had finished.
 
 A command shell with bash, ruby, and curl in the PATH.
 
+### Usage:
+
+```
+$ ./bin/topinat <userid>
+```
+
 ### Example:
 
 ```
-$ topinat benarmstrong
+$ ./bin/topinat benarmstrong
 benarmstrong: 2015-05-22 - 2019-05-11 (1451 days)
   Top 5 days:
      166 observations (2018-07-27)

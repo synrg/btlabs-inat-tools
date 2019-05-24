@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+# Example usage:
+#
+# $ mov2gif 008.mov
+#   => 008.gif reduced to 12 fps, aspect scale x=480
+# $ mov2gif 008.mov 5.0
+#   => 008.gif as per above, seek 5.0 seconds to start, to end of clip
+# $ mov2gif 008.mov 0.0 2.5
+#   => 008.gif as per above, from start of clip, for 2.5 seconds
+# $ mov2gif 008.mov 5.0 2.5
+#   => 008.gif as per above, seek 5.0 seconds to start, for 2.5 seconds
+#
+# Notes:
+#
+# See https://inaturalist.ca/posts/3544-please-add-comments#activity_comment_2944732 for
+# background, other tips.
+#
+infile=$1
+outfile=$1.gif
+seek=
+duration=
+if [ -n "$2" ]
+then
+  seek="-ss $2"
+  if [ -n "$3" ]
+  then
+    duration="-t $3"
+  fi
+fi
+# TODO: support palettegen=stats_mode=single & paletteuse=new=1 frame-by-frame pallete transform
+# - see if this is generally a good tradeoff & preferably use it instead of below (vs. making the
+#   user choose, which means extra time for the user making these choices = bad)
+ffmpeg $seek $duration -i $infile \
+  -filter_complex "[0:v] fps=12,scale=480:-1,split [a][b];[a] palettegen [p];[b][p] paletteuse" \
+  ${infile%.mov}.gif

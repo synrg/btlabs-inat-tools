@@ -4,13 +4,20 @@
 # Usage:
 #   topinat <userid>
 #
-# Example:
+# Examples:
 #   topinat barmstrong
-userid=${1}
-
-# Author's environment & defaults. Uncomment / edit as needed.
-#command -v ruby >/dev/null 2>&1 || uru 2.2 >/dev/null 2>&1
-#userid=${1:-benarmstrong}
+#
+# OR
+#
+#   Set default userid in ~/.bash_profile as per:
+#     export INAT_USERID=benarmstrong
+#
+#   topinat
+#   # => defaults to benarmstrong's top days
+#   topinat kueda
+#   # => shows someone else's top days (kueda's in the case)
+default_userid=$INAT_USERID
+userid=${1:-$default_userid}
 
 curl -sL "https://api.inaturalist.org/v1/observations/histogram?user_id=${userid}&interval=day&d1=2008-01-01'" | \
   ruby -rjson -ne 'j=JSON.parse($_); r=j["results"]["day"]; days=r.to_a' \

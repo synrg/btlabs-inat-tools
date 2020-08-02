@@ -2,7 +2,7 @@
 
 This is a collection of tools for iNaturalist users.
 
-- A Bluff Trail Labs production (https://btlabs.ca/).
+- A Bluff Trail Labs production (https://wrweo.ca/wp/bluff-trail-labs/).
 
 ## topinat - Tool to report an iNaturalist user's top days
 

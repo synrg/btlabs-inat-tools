@@ -15,7 +15,7 @@
 #   topinat
 #   # => defaults to benarmstrong's top days
 #   topinat kueda
-#   # => shows someone else's top days (kueda's in the case)
+#   # => shows someone else's top days (kueda's in this case)
 default_userid=$INAT_USERID
 userid=${1:-$default_userid}
 
